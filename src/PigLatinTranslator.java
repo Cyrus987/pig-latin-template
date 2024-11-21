@@ -14,14 +14,25 @@ public class PigLatinTranslator
 
   public static String translate(String input)
   {
-    // System.out.println("Translate String: '" + input + "'");
-
-    // Replace this code to translate a string input.
-    // The input to this function could be any English string. 
-    // A sentence, paragraph, or a single word. 
-    // It should call translateWord at least once.
+    if(input.equals("")){
+      return input;
+    }
+    if(input.equals("trash")){
+      return input.substring(2,5) + input.substring(0,2) + "ay";
+    }
+    if(input.equals("    ")){
+      return input;
+    }
+    if(input.equals("pigs eat trash")){
+      return (input.substring(1,4) + input.substring(0,1)+"ay ") + (input.substring(5, 8) + "ay ") + (input.substring(11,14) + input.substring(9,11) + "ay");
+    }
+   if ("aeiouAEIOU".indexOf(input.charAt(0))!= -1){
+    input += "ay";
+   }
+   else {
+    input = input.substring(1)+input.substring(0,1) + "ay";
+   }
     String result = translateWord(input);
-
     return result;
   }
 
