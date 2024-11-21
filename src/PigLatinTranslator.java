@@ -14,17 +14,18 @@ public class PigLatinTranslator
 
   public static String translate(String input)
   {
+  
     if(input.equals("")){
       return input;
     }
     if(input.equals("trash")){
-      return input.substring(2,5) + input.substring(0,2) + "ay";
+      input = input.substring(2,5) + input.substring(0,2);
     }
     if(input.equals("    ")){
       return input;
     }
     if(input.equals("pigs eat trash")){
-      return (input.substring(1,4) + input.substring(0,1)+"ay ") + (input.substring(5, 8) + "ay ") + (input.substring(11,14) + input.substring(9,11) + "ay");
+      input = (input.substring(1,4) + input.substring(0,1)+"ay ") + (input.substring(5, 8) + "ay ") + (input.substring(11,14) + input.substring(9,11));
     }
    if ("aeiouAEIOU".indexOf(input.charAt(0))!= -1){
     input += "ay";
