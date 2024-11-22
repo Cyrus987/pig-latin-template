@@ -14,27 +14,33 @@ public class PigLatinTranslator
 
   public static String translate(String input)
   {
-  
+    String vowels = "aeiouyAEIOUY";
+    String spaces = " ";
+    String othercapitals = "BCDFGHJKLMNPQRSTVWXZ";
+    int index = -1;
+    int vowel = -1;
+    while((vowel < 0) && (index < input.length()-1)){
+      index++;
+      vowel = vowels.indexOf(input.substring(index,index+1));
+    }
     if(input.equals("")){
       return input;
-    }
-    if(input.equals("trash")){
-      input = input.substring(2,5) + input.substring(0,2);
     }
     if(input.equals("    ")){
       return input;
     }
-    if(input.equals("pigs eat trash")){
-      input = (input.substring(1,4) + input.substring(0,1)+"ay ") + (input.substring(5, 8) + "ay ") + (input.substring(11,14) + input.substring(9,11));
-    }
-   if ("aeiouAEIOU".indexOf(input.charAt(0))!= -1){
+    if (spaces.indexOf(input.charAt(0))!= -1){
+    
+     }
+   if (vowels.indexOf(input.charAt(0))!= -1){
     input += "ay";
    }
    else {
-    input = input.substring(1)+input.substring(0,1) + "ay";
+    input = input.substring(index)+input.substring(0,index) + "ay";
    }
     String result = translateWord(input);
     return result;
+    
   }
 
   private static String translateWord(String input)
@@ -44,7 +50,7 @@ public class PigLatinTranslator
     // Replace this code to correctly translate a single word.
     // Start here first!
     String result = input;
-    
+   
     return result;
   }
 
